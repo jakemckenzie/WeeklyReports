@@ -1,14 +1,17 @@
 \babel@toc {english}{}
 \contentsline {section}{\numberline {1}Revision History}{3}{section.1}
 \contentsline {section}{\numberline {2}Introduction}{3}{section.2}
-\contentsline {section}{\numberline {3}Test Items}{3}{section.3}
-\contentsline {subsection}{\numberline {3.1}Hardware Test Items}{3}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Software Test Items}{3}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}System Test Items}{3}{subsection.3.3}
-\contentsline {section}{\numberline {4}Approach}{3}{section.4}
-\contentsline {section}{\numberline {5}Fail Criteria}{3}{section.5}
-\contentsline {section}{\numberline {6}Testing Deliverables}{3}{section.6}
-\contentsline {section}{\numberline {7}Roles}{3}{section.7}
-\contentsline {section}{\numberline {8}Schedule}{3}{section.8}
-\contentsline {section}{\numberline {9}Testing Risks and Mitigation}{3}{section.9}
-\contentsline {section}{\numberline {10}Approvals}{3}{section.10}
+\contentsline {subsection}{\numberline {2.1}Purpose}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Project Overview}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Audience}{3}{subsection.2.3}
+\contentsline {section}{\numberline {3}Test Items}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Hardware Test Items}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Software Test Items}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}System Test Items}{4}{subsection.3.3}
+\contentsline {section}{\numberline {4}Approach}{5}{section.4}
+\contentsline {section}{\numberline {5}Fail Criteria}{5}{section.5}
+\contentsline {section}{\numberline {6}Testing Deliverables}{5}{section.6}
+\contentsline {section}{\numberline {7}Roles}{5}{section.7}
+\contentsline {section}{\numberline {8}Schedule}{5}{section.8}
+\contentsline {section}{\numberline {9}Testing Risks and Mitigation}{5}{section.9}
+\contentsline {section}{\numberline {10}Approvals}{5}{section.10}

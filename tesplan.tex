@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
+\usepackage{siunitx}
 
 \usepackage[hmargin=1in,vmargin=1in]{geometry}
 
@@ -62,26 +63,74 @@ Modified: \today
 
 \section{Revision History}
 
-%\begin{itemize}
-%	\item short overview of what is to be tested and how
-%\end{itemize}
+\begin{itemize}
+	\item v0.1: In this version of the testplan we defined the  
+    scope of the problem with the introduction, test items and 
+    approach. 
+\end{itemize}
 
 
 \section{Introduction}
-
-%\begin{itemize}
-%	\item prioritization scheme
-%	\item list of features to be tested
-%	\item priorities of the above features according to chosen scheme
-%	\item short overview of features that will not be tested
-%\end{itemize}
-
-
+\subsection{Purpose}
+This test plan describes the testing approach and overall 
+framework that will drive the testing of the ORPS-Robot 
+version 0.1 – The Object Recognition and Path Smoothing 
+robot. The document introduces:
+\begin{itemize}
+	\item[] Test Strategy: These are the rules the test will e based on including 
+    the givens of the project (e.g.: start / end dates, objectives, assumptions); 
+    description of the process to set up a valid test (e.g.: entry / exit criteria, 
+    creation of test cases, specific tasks to perform and scheduling)
+	\item[] Execution Strategy: describes how the test will be performed 
+    and process to identify and report problems, and to fix and implement 
+    fixes.
+    \item[] Test Management: process to handle the logistics of the test 
+    and all the events that come up during execution (e.g.: communications, 
+    escalation procedures and risk mitigation)
+\end{itemize}
+\subsection{Project Overview}
+The ORPS-Robot will be a platform for validating the research of Michael McCourt 
+and a scheme for exploring object recognition via OpenCV with Robot Operating System, 
+which is a powerful framework for writing robot software. There will be a demonstration 
+of Simultaneous Localization and Mapping (SLAM). Together this will demostrate a ``finder
+robot'' with applications in search and rescue and threat detection. Additionally there 
+will be beacon triangulation and/or GPS to fuse additional location information into the 
+SLAM or finder functionality.
+\subsection{Audience}
+Collaborative robotics software development for research in control systems 
+for path smoothing. Collaboration in academic research is usually thought to mean 
+equal partnership between two academic faculty members who are pursuing mutually 
+interesting and beneficial research. In our case we are creating a platform which 
+will serve Dr. McCourt research where deep understanding of the control system in 
+place is not require on our part and a deep understanding of the robot are not 
+require on the part of Dr. McCourt.\\\\
+Creating truly, robust, general-purpose robot software is hard. As 
+undergraduates using robot operating system framework allows us to encompass 
+solving robotics problems in real-world variations in complex tasks and 
+environments that no single individual, laboratory, or institution could 
+hole to create completely on their own from scratch. The audience for this 
+device is us, as it serves our education.\\\\
+Applications in path smoothing and object recognition used in 
+ORPS-Robot project are heavily used in semi-autonomous and autonomous 
+vehicles. The knowledge gain in applying these skills in the ROS ecosystem 
+should serve us to gaining a greater knowledge of the systems and 
+practices of both control systems and object recognition.
 \section{Test Items}
 \subsection{Hardware Test Items}
+These will have more descriptions in later revisions.
+\begin{itemize}
+    \item[] \ang{360} LiDAR for SLAM \& Navigation
+    \item[] Rasberry Pi 3 Model B
+    \item[] 32-bit ARM Cortex-M7 OpenCR
+    \item[] DYNAMIXEL wheels
+    \item[] Li-Po Battery 11.1V 1,800mAh 
+    \item[] Xbox 360 Controller 
+    \item[] **INCLUDE SENSORS PROVIDED BY DR. MCCOURT HERE** 
+\end{itemize}
 \subsection{Software Test Items}
+I don't know what this will look like yet and am leaving this blank for now.
 \subsection{System Test Items}
-
+I don't know what this will look like yet and am leaving this blank for now.
 
 % \begin{itemize}
 % 	\item test environment(s) and required setup
