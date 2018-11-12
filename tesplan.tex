@@ -21,7 +21,7 @@ $ $
 
 \begin{bfseries}
 
-{\Large Object Recognition and Path Smoothing Robot, Phase 1}
+{\Large Object Recognition and Path Smoothing Robot, Phase 2}
 
 {\Huge Test Plan}
 
@@ -66,7 +66,9 @@ Modified: \today
 \begin{itemize}
 	\item v0.1: In this version of the testplan we defined the  
     scope of the problem with the introduction, test items and 
-    approach. 
+    approach.
+    \item v0.2: In this version of the testplan we defined the  
+    test items, schedule and approach.
 \end{itemize}
 
 
@@ -125,26 +127,92 @@ These will have more descriptions in later revisions.
     \item[] DYNAMIXEL wheels
     \item[] Li-Po Battery 11.1V 1,800mAh 
     \item[] Xbox 360 Controller 
-    \item[] **INCLUDE SENSORS PROVIDED BY DR. MCCOURT HERE** 
+    \item[] Marvelmind Sensors
 \end{itemize}
 \subsection{Software Test Items}
-I don't know what this will look like yet and am leaving this blank for now.
+At this point in the process we do not knwo what the overall architecture of the software will 
+look like but we can have a general plan of attack for writing software tests using rostest. According 
+to Paul Ammann's Introduciton to Software Testing, there are five levels of software testing: \\
+\begin{itemize}
+    \item[Level 0] There is no difference between testing and debugging.
+    \item[Level 1] The purpose of testing is to show correctness.
+    \item[Level 2] The purpose of testing is to show that software does not work.
+    \item[Level 3] The purpose of testing is not to prove anything specific, 
+    but to reduce the risk of using the software.
+    \item[Level 4] Testing is a mental discipline that helps all IT professionals 
+    develop higher-quality software.
+\end{itemize}
+For our purposes levels 0 through 2 will be used heavily in this process while level 3 and 4 will 
+only be used when needed. To accomplish the task in level 0 we will be making heavy use of first 
+GDB (C debugger) and PDB (Python debugger) along with Valgrind. Levels 1 and 2 will be tackled, 
+hopefully, by making heavy use of \href{http://wiki.ros.org/rostest}{\textit{rostest}} which is an 
+extension of roslaunch that enables roslaunch files to be used as text fixtures. Due to complex 
+behaivors involved in this project we need to write tests and move on from functionality. When we 
+introduce new functionality to the to ORPS-robot it will need to pass the old tests we wrote for it. 
+if everything is functioning properly there should be no need to re-write our old tests. This will 
+likely only be done with software strict aspects of the project as hardware is subject to change as 
+the implementation changes over time. These tests, at least of the framing of this writing, will be 
+to test the linking of different scripts and files written in the overall project. 
 \subsection{System Test Items}
-I don't know what this will look like yet and am leaving this blank for now.
+For the \ang{360} LiDAR for SLAM \& Navigation we will need to consult three seperate 
+resources for testing the LiDAR. The first will be a github wiki page entitled 
+``\href{https://github.com/robopeak/rplidar_ros/wiki/How-to-use-rplidar}{How to use rplidar}'' 
+which is just a walkthrough of how to get rplidar ros packarge working. While this just gives 
+a short introduction to rplidar, a more up to date tutorial on quickly getting rplidar up and 
+running can be found on Service Engineering Research Area website under 
+``\href{https://blog.zhaw.ch/icclab/rplidar/}{From unboxing RPLIDAR to running in ROS in 10 
+minutes flat}''. The first goal with LiDAR appears to be establishing the range of the device 
+as this what determines the quality of the information used in navigation. Given more time 
+there will also involve be static and dynamic tests based on scanning calibration, 
+speed of the LiDAR, vehicle speed, laser position feedback. Further testing will involve the use 
+of a tutorial on husarion.com entitled \\\\
+``\href{https://husarion.com/tutorials/ros-tutorials/6-slam-navigation/}{SLAM navigation}''. 
+According to the Bachelor's Thesis of Felix Feik from Technical University of Munich,
+the most difficult factor in indoor mapping using LiDAR is that the laser sensor always has 
+the position or your map building and pose estimation will fail. The LiDAR needs a consistent, 
+relative motion to map a building correctly. Glass doors and other visible objects will not 
+be accounted for by the LiDAR as the signal will not penetrate glass. Long story short, to use 
+SLAM properly we will need to test take into account the limitations of the device and leverage 
+the libraries provided by robot operating system to do so. \\\\
 
-% \begin{itemize}
-% 	\item test environment(s) and required setup
-% 	\item how the testing should be performed, including usage scenarios, example users etc.
-% \end{itemize}
-
+As for testing our controller that will make heavy use of the 
+\href{http://wiki.ros.org/joy#Microsoft_Xbox_360_Wired_Controller_for_Linux}{joy} 
+package in ROS which is a library for generic Linux joysticks. 
 
 \section{Approach}
 
-% \begin{itemize}
-% 	\item how is the severity of found errors determined
-% 	\item criteria for deciding whether the SUT passes testing
-% \end{itemize}
+Our tests will be derived from the requirements and specifications of our project and will follow 
+the following methodological approach:
 
+\begin{itemize}
+    \item[]Acceptance Testing: Assess system (software \& hardware) interaction with respect 
+    to user needs. For example, making sure the controller is responsive or camera is functioning 
+    adequately.
+    \item[]System Testing: Assesses system interaction to architecture design and overall behaivor. 
+    For example a series of rostests that test the linking of each submodule we write for the overall 
+    project.
+    \item[]Integration Testing: The continous conjoining of different software artifacts to 
+    serve the overall project development. For example, a test that ensures two individual modules are 
+    linked properly.
+    \item[]Unit Testing: Assesses system interaction with respect to implementation of specific subsystems. 
+    For example, a test that ensures the controller is functioning properly standalone through the joy 
+    package.
+\end{itemize}
+While these levels are emphasised in terms of when they are applied, it is more important to distinguish 
+the types of faults listed above. They are all a continious part of the design and build process. At 
+the end of the day there is an entire spectrum of testing, and much of it is hard to distinguish from 
+development itself. Most tests look like unit tests and are quite simple. Other tests are more subtle, 
+complex and critical. For such tests we need to use the tools laid out in this document to check our 
+implemetation. In the testing process the standard behaivoral model should be employed, where 
+execution of a program or task is respented by a behaivor. A behaivor is sequence of states while a state 
+is an assignment of values of variables. Our program should be tested and modeled by a set of behaivors 
+we define, representing possible executions. \\\\
+Safety when testing can be specified using two things:\\
+\begin{itemize}
+    \item[-] The set of possible initial states.
+    \item[-] A next-state relation, describing all possible successor states of any state. 
+\end{itemize}
+The above is a mindset that integrates the testing process into the development process.
 \section{Fail Criteria}
 
 \section{Testing Deliverables}
