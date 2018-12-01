@@ -6,8 +6,8 @@
 \contentsline {subsection}{\numberline {2.3}Audience}{3}{subsection.2.3}
 \contentsline {section}{\numberline {3}Test Items}{4}{section.3}
 \contentsline {subsection}{\numberline {3.1}Hardware Test Items}{4}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Software Test Items}{4}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}System Test Items}{5}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.2}Software Test Items}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}System Test Items}{6}{subsection.3.3}
 \contentsline {section}{\numberline {4}Approach}{6}{section.4}
 \contentsline {section}{\numberline {5}Fail Criteria}{7}{section.5}
 \contentsline {section}{\numberline {6}Testing Deliverables}{7}{section.6}

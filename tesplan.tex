@@ -94,7 +94,7 @@ robot. The document introduces:
 The ORPS-Robot will be a platform for validating the research of Michael McCourt 
 and a scheme for exploring object recognition via OpenCV with Robot Operating System, 
 which is a powerful framework for writing robot software. There will be a demonstration 
-of Simultaneous Localization and Mapping (SLAM). Together this will demostrate a ``finder
+of Simultaneous Localization and Mapping (SLAM). Together this will demonstrate a ``finder
 robot'' with applications in search and rescue and threat detection. Additionally there 
 will be beacon triangulation and/or GPS to fuse additional location information into the 
 SLAM or finder functionality.
@@ -119,20 +119,50 @@ should serve us to gaining a greater knowledge of the systems and
 practices of both control systems and object recognition.
 \section{Test Items}
 \subsection{Hardware Test Items}
-These will have more descriptions in later revisions.
+Hardware testing is the exercising of a piece of hardware. Which often times involves the 
+ability to take measurements along the way with a generated record of the whole process. Testing 
+must be cataloged and recorded. While this is mostly a software project hardware testing for the 
+ORPS-Robot, should and will be split into four key modes:\\
 \begin{itemize}
-    \item[] \ang{360} LiDAR for SLAM \& Navigation
-    \item[] Rasberry Pi 3 Model B
-    \item[] 32-bit ARM Cortex-M7 OpenCR
-    \item[] DYNAMIXEL wheels
-    \item[] Li-Po Battery 11.1V 1,800mAh 
-    \item[] Xbox 360 Controller 
-    \item[] Marvelmind Sensors
+\item[M1.] Electrical Testing: This is one type of test, unlike software testing, that 
+poses a verifiable risk of physical danger to the test and system under test. Even a system that 
+is not powered can have potentially have deadly electrical charges stored in capacitors and batteries. 
+For the purposes of ORPS-Robot most electrical tests will be in the form of connectivity testing 
+and the testing of the battery on the robot itself. 
+\item[M2.] Environmental Testing: This is the testing of the device with things as they are, 
+not how we would like them to be. This is to see how a system responds to various types of insults, 
+justifiable hurdles and taxing conditions. For this project we will be testing how the ORPS-robot 
+responds to various stimuli including windows, people, interferences over the Wi-Fi, LiDAR and 
+ultrasonic signals and other stimuli yet to be discovered. The system must be tested and verified to deal 
+with such stimuli.
+\item[M3.] Mechanical Testing: Anything that can bend, click, flex, is in any way subject to opposing 
+forces, latch, open and close, plug and unplug, press and depress, rotate, or switch and toggle, might 
+eventually fail and will be subject to strains and wear. For this project the main mechanical component 
+that must be dealt with are the DYNAMIXEL actuator system and wheels and LiDAR. 
+\item[M4.] Integrated Software: Poor maintenance of the BIOS and firmware on a system can ripple through to 
+affect both hardware and software, causing reliability issues for the system under test. Good software principles, 
+for this reason, make good hardware and for this reason this goes in the hardware testing.  For the ORPS-robot 
+our BIOS and firmware make up a huge aspect of the project itself. Much of that is up to us to control and tune, 
+not some third party. For this reason, it is identified that this is a major key area of the project. This will 
+also include the most fundamental of hardware tests: subsystem sanity tests, which are no more than tests that 
+run whenever a system reboots or power ups. These must be employed on the ORPS-Robot to ensure a first line of 
+defense in isolating hardware issues.
+\end{itemize}
+The ideas for these modes were borrowed heavily from Managing the Testing Process by Rex Black 3rd Edition, 
+Appendix A: Hardware Testing Fundamentals. 
+\begin{itemize}
+\item[H1)] \ang{360} LiDAR for SLAM \& Navigation
+\item[H2)] Raspberry Pi 3 Model B
+\item[H3)] 32-bit ARM Cortex-M7 OpenCR
+\item[H3)] DYNAMIXEL actuator system and wheels
+\item[H4)] Li-Po Battery 11.1V 1,800mAh 
+\item[H5)] Xbox 360 Controller 
+\item[H6)] Marvelmind Sensors
 \end{itemize}
 \subsection{Software Test Items}
-At this point in the process we do not knwo what the overall architecture of the software will 
+At this point in the process we do not know what the overall architecture of the software will 
 look like but we can have a general plan of attack for writing software tests using rostest. According 
-to Paul Ammann's Introduciton to Software Testing, there are five levels of software testing: \\
+to Paul Ammann's Introduction to Software Testing, there are five levels of software testing: \\
 \begin{itemize}
     \item[Level 0] There is no difference between testing and debugging.
     \item[Level 1] The purpose of testing is to show correctness.
@@ -147,17 +177,17 @@ only be used when needed. To accomplish the task in level 0 we will be making he
 GDB (C debugger) and PDB (Python debugger) along with Valgrind. Levels 1 and 2 will be tackled, 
 hopefully, by making heavy use of \href{http://wiki.ros.org/rostest}{\textit{rostest}} which is an 
 extension of roslaunch that enables roslaunch files to be used as text fixtures. Due to complex 
-behaivors involved in this project we need to write tests and move on from functionality. When we 
+behaviors involved in this project we need to write tests and move on from functionality. When we 
 introduce new functionality to the to ORPS-robot it will need to pass the old tests we wrote for it. 
 if everything is functioning properly there should be no need to re-write our old tests. This will 
 likely only be done with software strict aspects of the project as hardware is subject to change as 
 the implementation changes over time. These tests, at least of the framing of this writing, will be 
 to test the linking of different scripts and files written in the overall project. 
 \subsection{System Test Items}
-For the \ang{360} LiDAR for SLAM \& Navigation we will need to consult three seperate 
+For the \ang{360} LiDAR for SLAM \& Navigation we will need to consult three separate 
 resources for testing the LiDAR. The first will be a github wiki page entitled 
 ``\href{https://github.com/robopeak/rplidar_ros/wiki/How-to-use-rplidar}{How to use rplidar}'' 
-which is just a walkthrough of how to get rplidar ros packarge working. While this just gives 
+which is just a walkthrough of how to get rplidar ros package working. While this just gives 
 a short introduction to rplidar, a more up to date tutorial on quickly getting rplidar up and 
 running can be found on Service Engineering Research Area website under 
 ``\href{https://blog.zhaw.ch/icclab/rplidar/}{From unboxing RPLIDAR to running in ROS in 10 
@@ -175,7 +205,7 @@ be accounted for by the LiDAR as the signal will not penetrate glass. Long story
 SLAM properly we will need to test take into account the limitations of the device and leverage 
 the libraries provided by robot operating system to do so. \\\\
 
-As for testing our controller that will make heavy use of the 
+\noindent As for testing our controller that will make heavy use of the 
 \href{http://wiki.ros.org/joy#Microsoft_Xbox_360_Wired_Controller_for_Linux}{joy} 
 package in ROS which is a library for generic Linux joysticks. \\\\
 **TALK ABOUT MARVELMIND eventually**
@@ -188,24 +218,24 @@ the following methodological approach:
     \item[]Acceptance Testing: Assess system (software \& hardware) interaction with respect 
     to user needs. For example, making sure the controller is responsive or camera is functioning 
     adequately.
-    \item[]System Testing: Assesses system interaction to architecture design and overall behaivor. 
+    \item[]System Testing: Assesses system interaction to architecture design and overall behavior. 
     For example a series of rostests that test the linking of each submodule we write for the overall 
     project.
-    \item[]Integration Testing: The continous conjoining of different software artifacts to 
+    \item[]Integration Testing: The continuous conjoining of different software artifacts to 
     serve the overall project development. For example, a test that ensures two individual modules are 
     linked properly.
     \item[]Unit Testing: Assesses system interaction with respect to implementation of specific subsystems. 
     For example, a test that ensures the controller is functioning properly standalone through the joy 
     package.
 \end{itemize}
-While these levels are emphasised in terms of when they are applied, it is more important to distinguish 
-the types of faults listed above. They are all a continious part of the design and build process. At 
+While these levels are emphasized in terms of when they are applied, it is more important to distinguish 
+the types of faults listed above. They are all a continuous part of the design and build process. At 
 the end of the day there is an entire spectrum of testing, and much of it is hard to distinguish from 
 development itself. Most tests look like unit tests and are quite simple. Other tests are more subtle, 
 complex and critical. For such tests we need to use the tools laid out in this document to check our 
-implemetation. In the testing process the standard behaivoral model should be employed, where 
-execution of a program or task is respented by a behaivor. A behaivor is sequence of states while a state 
-is an assignment of values of variables. Our program should be tested and modeled by a set of behaivors 
+implementation. In the testing process the standard behavioral model should be employed, where 
+execution of a program or task is represented by a behavior. A behavior is sequence of states while a state 
+is an assignment of values of variables. Our program should be tested and modeled by a set of behaviors 
 we define, representing possible executions. \\\\
 Safety when testing can be specified using two things:\\
 \begin{itemize}
