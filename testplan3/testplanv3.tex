@@ -72,7 +72,8 @@ Modified: \today
     test items, schedule and approach.
     \item v0.3: In this version of the testplan we updated 
     the hardware, software, and system test items with 
-    tables and test descriptions. 
+    tables and test descriptions. A Criticality criterion 
+    was added to distinguish a hierarchy of tests. 
 \end{itemize}
 
 
@@ -102,34 +103,7 @@ of Simultaneous Localization and Mapping (SLAM). Together this will demonstrate 
 robot'' with applications in search and rescue and threat detection. Additionally there 
 will be beacon triangulation and/or GPS to fuse additional location information into the 
 SLAM or finder functionality.
-\subsection{Criticality}
-Failures can rarely be forecasted. But what we can do is establish a hierarchy of 
-criticality to ensure that we are keeping up with the most important test and using 
-other tests as needed. Ordering what we need to do by priority is important as the scope 
-of the project grows. The reason for the priority emphasis is that it is by far 
-the most efficient way of working, in terms of creating reliable products and reducing 
-the overall cost of the project. For instance using the wrong battery on the ORPS-Robot 
-would likely ruin at least the Raspberry Pi or OpenCR, along with other mission critical 
-components. This is not only a likely outcome if special care is not paid but we have seen it 
-happen with prior groups in previous projects in this program. For this reason a heavy emphasis 
-will be paid on this scheme.
-\centerline{\includegraphics[width = \textwidth]{crit.jpg}}
-\begin{itemize}
-    \item[S1.] Secondary Service - These involve services that are only checked when a component 
-    fails. Use see in many applications test conditions can take longer to create than others. 
-    This is the sort of service that happens ala cart and may be indistinguishable from the actual 
-    build and design process in spots. These are components that we should likely assume work until 
-    they don't.
-    \item[S2.] Critical or Primary Service - Most component tests, both software and hardware, 
-    fall under this category. Some but not all integration test that fall under interaction of 
-    components (system test items) will likely fall under this category. These are services that 
-    if they fail, will not mean the end of the project, but are extremely critical components 
-    and should be worried about early and often.
-    \item[S3.] Mission Critical Service - Most acceptance tests will fall under this category, this 
-    means systems test items critical to Dr. McCourt’s research and of our object recognition 
-    portion. A lot of integration testing will follow under this category. These are services 
-    that if they fail, then the project has serious issues that need to be resolved.
-\end{itemize}
+
 \subsection{Audience}
 Collaborative robotics software development for research in control systems 
 for path smoothing. Collaboration in academic research is usually thought to mean 
@@ -224,7 +198,10 @@ introduce new functionality to the to ORPS-robot it will need to pass the old te
 if everything is functioning properly there should be no need to re-write our old tests. This will 
 likely only be done with software strict aspects of the project as hardware is subject to change as 
 the implementation changes over time. These tests, at least of the framing of this writing, will be 
-to test the linking of different scripts and files written in the overall project. 
+to test the linking of different scripts and files written in the overall project. Some sort of test 
+of tests should be employed for any software. This can go on forever, so to limit the number of tests 
+of tests for only specified mission critical software tests. \\\\\\
+
 \subsection{System Test Items}
 For the \ang{360} LiDAR for SLAM \& Navigation we will need to consult three separate 
 resources for testing the LiDAR. The first will be a github wiki page entitled 
@@ -238,6 +215,26 @@ as this what determines the quality of the information used in navigation. Given
 there will also involve be static and dynamic tests based on scanning calibration, 
 speed of the LiDAR, vehicle speed, laser position feedback. Further testing will involve the use 
 of a tutorial on husarion.com entitled \\\\
+The initial test whenever running the ORPS-Robot will always be to call 
+\href{http://wiki.ros.org/roscore}{\textit{roscore}}. 
+This is a collection of nodes and programs that are a pre-requisite of any ROS-based platform. Think init 
+in Linux. This is a secondary service that is always run whenever we launch ROS. When this finishes it should say 
+``started core service''\\\\
+There should be some sort of test between the network of the base station and the ORPS-Robot. We do not currently have much 
+knowledge of networking but that test will be tackled when we get there. There should be some sort of basic 
+test of movement instructions in some sort of unit test framework. There should also be a unit test for the 
+Marvelmind sensors. A unit test must be written to check to see whether the location 
+information of the ORPS-Robot is reaching the base station. \\\\\
+A major component of the software section with be software under test for the graphical user interface which 
+will involve knowing the domain and range of our graphical user interface. The domain (set of legal 
+inputs) including possible clicks, keyboard events, controller events and the range (set of possible 
+application states). The domain for this system, that is to say the size of all possible graphical 
+user interface inputs is quite huge. Identifying what a set of good graphical user interface test
+inputs. To accomplish this it will be some combination of just using the application, injecting some sort of 
+stream of ``fake'' graphical user interface events and most importantly reproducing graphical user interface 
+inputs that crashed a previous version of the software by injecting similar or the same inputs back into 
+the program.
+\\\\
 ``\href{https://husarion.com/tutorials/ros-tutorials/6-slam-navigation/}{SLAM navigation}''. 
 According to the Bachelor's Thesis of Felix Feik from Technical University of Munich,
 the most difficult factor in indoor mapping using LiDAR is that the laser sensor always has 
@@ -245,30 +242,50 @@ the position or your map building and pose estimation will fail. The LiDAR needs
 relative motion to map a building correctly. Glass doors and other visible objects will not 
 be accounted for by the LiDAR as the signal will not penetrate glass. Long story short, to use 
 SLAM properly we will need to test take into account the limitations of the device and leverage 
-the libraries provided by robot operating system to do so. \\\\
-\noindent As for testing our controller that will make heavy use of the 
+the libraries provided by robot operating system to do so. As for testing our controller that will make heavy use of the 
 \href{http://wiki.ros.org/joy#Microsoft_Xbox_360_Wired_Controller_for_Linux}{joy} 
 package in ROS which is a library for generic Linux joysticks. \\\\
-\centerline{\includegraphics[width = \textwidth]{beacons.jpg}}
+\begin{figure}[h!]
+    \centerline{\includegraphics[width = \textwidth]{beacons.jpg}}
+    \caption{The research testing environment for the ORPS-Robot}
+\end{figure}
+\newpage
 The final test for Dr. McCourt will involve both the Marvelmind Beacons and 
 LiDAR working in conjunction with the ORPS-Robot. We will define three criteria 
-to get to this point. \\
+to get to this point. Those criteria will be defined bellow. This test will involve 
+the ability to setup the Marvelmind sensors into a room in a rectangular fashion, with 
+a mobile beacon on the ORPS-Robot. These sensors will be talking to each other. We will 
+feed some desired path to the user to follow while the Marvelmind sensors measure the actual 
+path that the robot is taking. That error between what the user is doing and what the Marvelmind 
+sensors are feeding back is what we care about. This is also where we will be testing the LiDAR. The 
+LiDAR will be mapping out the room giving back additional location data for error correction. There 
+are many systems talking to each other in this system, as can be seen in the figure above. A unit test 
+must be written for McCourt's input-output transformations to ensure that the transforms 
+were implemented correctly in the software and output the correct values. A lot of care must be paid in the 
+calculations here and \href{http://numerical.recipes/}{\textit{Press's Numerical Recipes in C}} should be 
+consulted early and often to ensure accuracy.\\\\\\
 \begin{itemize}
-    \item[C1.] Entry Criteria - This is where we establish that the appropriate 
+    \item[RC1.] Research Entry Criteria - This is where we establish that the appropriate 
     documentation, design, and requirements information is available to begin testing 
     the final system and judge correct behavior. This doesn't have to be at the very end, 
     but it must be at a stage where we can test multiple systems interacting at once.
-    \item[C2.] Continuation Criteria - this defines those conditions and situations that must 
-    prevail in the final testing process to allow testing to continue smoothly and robustly, that 
+    \item[RC2.] Research Continuation Criteria - this defines those conditions and situations that must 
+    prevail in the final research testing process to allow testing to continue smoothly and robustly, that 
     serves meeting our final goal. This is also where the main stage where keeping the bug backlog 
     and having unit tests that just work without much fiddling. At this stage we want to be fighting 
     with how to use the tool, not just getting the tool to work to begin with.
-    \item[C3.] Exit Criteria  - This is the criteria we must meet to determine when the project has completed 
+    \item[RC3.] Research Exit Criteria  - This is the criteria we must meet to determine when the project has completed 
     the main stage of testing of Dr. McCourt’s research interests. This means that no changes need to be made to 
-    this completed part, except to address system test defects introduced by later stages of the project. z
+    this completed part, except to address system test defects introduced by later stages of the project. 
+    No crash, halt, panic, unexpected process termination, or other stoppages in completing this part. The research 
+    portion must be self-encapsulated from other portions of the project as much as possible. We must be able to reach 
+    demo day, having completed this portion of the project, and for it to just work on command.
 \end{itemize} 
 \section{Approach}
-
+\subsection{Special Tools}
+Most special tools in this project will be software based. These tools will mostly be used for 
+debugging, bug tracking and catching memory leaks. 
+\subsection{Metrics}
 Our tests will be derived from the requirements and specifications of our project and will follow 
 the following methodological approach:
 
@@ -294,13 +311,52 @@ complex and critical. For such tests we need to use the tools laid out in this d
 implementation. In the testing process the standard behavioral model should be employed, where 
 execution of a program or task is represented by a behavior. A behavior is sequence of states while a state 
 is an assignment of values of variables. Our program should be tested and modeled by a set of behaviors 
-we define, representing possible executions. \\\\
+we define, representing possible executions. \\\\\\
 Safety when testing can be specified using two things:\\
 \begin{itemize}
     \item[-] The set of possible initial states.
     \item[-] A next-state relation, describing all possible successor states of any state. 
 \end{itemize}
-The above is a mindset that integrates the testing process into the development process.
+The above is a mindset that integrates the testing process into the development process.\\\\\\
+Failures can rarely be forecasted. But what we can do is establish a hierarchy of 
+criticality to ensure that we are keeping up with the most important test and using 
+other tests as needed. Ordering what we need to do by priority is important as the scope 
+of the project grows. The reason for the priority emphasis is that it is by far 
+the most efficient way of working, in terms of creating reliable products and reducing 
+the overall cost of the project. For instance using the wrong battery on the ORPS-Robot 
+would likely ruin at least the Raspberry Pi or OpenCR, along with other mission critical 
+components. This is not only a likely outcome if special care is not paid but we have seen it 
+happen with prior groups in previous projects in this program. For this reason a heavy emphasis 
+will be paid on this scheme.
+\begin{figure}[h!]
+    \centerline{\includegraphics[width = \textwidth]{crit.jpg}}
+    \caption{The \textit{Criticality} hierarchy for the ORPS-Robot}
+\end{figure}
+\begin{itemize}
+    \item[S1.] Secondary Service - These involve services that are only checked when a component 
+    fails. Use see in many applications test conditions can take longer to create than others. 
+    This is the sort of service that happens ala cart and may be indistinguishable from the actual 
+    build and design process in spots. These are components that we should likely assume work until 
+    they don't.
+    \item[S2.] Critical or Primary Service - Most component tests, both software and hardware, 
+    fall under this category. Some but not all integration test that fall under interaction of 
+    components (system test items) will likely fall under this category. These are services that 
+    if they fail, will not mean the end of the project, but are extremely critical components 
+    and should be worried about early and often.
+    \item[S3.] Mission Critical Service - Most acceptance tests will fall under this category, this 
+    means systems test items critical to Dr. McCourt’s research and of our object recognition 
+    portion. A lot of integration testing will follow under this category. These are services 
+    that if they fail, then the project has serious issues that need to be resolved.
+\end{itemize}
+The last metric will be using is the \textit{defect detection percentage} on Dr. McCourt's 
+research testing. We will define this metric as follows:\\\\
+\centerline{$\text{DDE} = \frac{\text{Bugs Prior to Research Testing}}{\text{Bugs Prior to Research Testing} + \text{Bugs during Research Testing}}$}
+\\\\
+Bugs are required to be unique for the relationship in this equation to hold, but if they are the DDE should 
+give us some sort of metric on how well we captured and tackled bugs prior to release. This 
+assumes for the sake of argument that all bugs are \textit{ceteris paribus} (all things held equal).
+This is not the case. All bugs are not created equal, neither are all metrics, but they do 
+allow us some sort of evaluation on our quality of work.
 \section{Fail Criteria}
 
 \section{Testing Deliverables}
