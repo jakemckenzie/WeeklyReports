@@ -22,7 +22,7 @@ $ $
 
 \begin{bfseries}
 
-{\Large Object Recognition and Path Smoothing Robot, Phase 2}
+{\Large Object Recognition and Path Smoothing Robot, Phase 3}
 
 {\Huge Test Plan}
 
@@ -183,15 +183,15 @@ defense in isolating hardware issues.
 The ideas for these modes were borrowed heavily from Managing the Testing Process by Rex Black 3rd Edition, 
 Appendix A: Hardware Testing Fundamentals. 
 \begin{itemize}
-\item[H1)] \ang{360} LiDAR for SLAM \& Navigation
-\item[H2)] Raspberry Pi 3 Model B
-\item[H3)] 32-bit ARM Cortex-M7 OpenCR
-\item[H3)] DYNAMIXEL actuator system and wheels
-\item[H4)] Li-Po Battery 11.1V 1,800mAh 
-\item[H5)] Xbox 360 Controller 
-\item[H6)] Marvelmind Sensors
+\item[H1.] \ang{360} LiDAR for SLAM \& Navigation
+\item[H2.] Raspberry Pi 3 Model B
+\item[H3.] 32-bit ARM Cortex-M7 OpenCR
+\item[H3.] DYNAMIXEL actuator system and wheels
+\item[H4.] Li-Po Battery 11.1V 1,800mAh 
+\item[H5.] Xbox 360 Controller 
+\item[H6.] Marvelmind Sensors
 \end{itemize}
-\href{https://www.youtube.com/watch?v=W3nH-Bh1Q0}{\textit{Connectivity on the Raspberry Pi 3 Model B}} and 
+Connectivity on the Raspberry Pi 3 Model B and 
 \href{http://emanual.robotis.com/docs/en/parts/controller/opencr10/}{\textit{32-bit ARM Cortex-M7 OpenCR}} 
 must be completed regularly. The Li-Po Battery 11.1V 1,800mAh will need to have its voltage checked to 
 regularly. To assist in this process only batteries that match our desired voltage and amperage will be 
@@ -229,7 +229,7 @@ to test the linking of different scripts and files written in the overall projec
 For the \ang{360} LiDAR for SLAM \& Navigation we will need to consult three separate 
 resources for testing the LiDAR. The first will be a github wiki page entitled 
 ``\href{https://github.com/robopeak/rplidar_ros/wiki/How-to-use-rplidar}{How to use rplidar}'' 
-which is just a walkthrough of how to get rplidar ros package working. While this just gives 
+which is just a walk-through of how to get rplidar ros package working. While this just gives 
 a short introduction to rplidar, a more up to date tutorial on quickly getting rplidar up and 
 running can be found on Service Engineering Research Area website under 
 ``\href{https://blog.zhaw.ch/icclab/rplidar/}{From unboxing RPLIDAR to running in ROS in 10 
@@ -246,27 +246,43 @@ relative motion to map a building correctly. Glass doors and other visible objec
 be accounted for by the LiDAR as the signal will not penetrate glass. Long story short, to use 
 SLAM properly we will need to test take into account the limitations of the device and leverage 
 the libraries provided by robot operating system to do so. \\\\
-
 \noindent As for testing our controller that will make heavy use of the 
 \href{http://wiki.ros.org/joy#Microsoft_Xbox_360_Wired_Controller_for_Linux}{joy} 
 package in ROS which is a library for generic Linux joysticks. \\\\
-**TALK ABOUT MARVELMIND eventually**
+\centerline{\includegraphics[width = \textwidth]{beacons.jpg}}
+The final test for Dr. McCourt will involve both the Marvelmind Beacons and 
+LiDAR working in conjunction with the ORPS-Robot. We will define three criteria 
+to get to this point. \\
+\begin{itemize}
+    \item[C1.] Entry Criteria - This is where we establish that the appropriate 
+    documentation, design, and requirements information is available to begin testing 
+    the final system and judge correct behavior. This doesn't have to be at the very end, 
+    but it must be at a stage where we can test multiple systems interacting at once.
+    \item[C2.] Continuation Criteria - this defines those conditions and situations that must 
+    prevail in the final testing process to allow testing to continue smoothly and robustly, that 
+    serves meeting our final goal. This is also where the main stage where keeping the bug backlog 
+    and having unit tests that just work without much fiddling. At this stage we want to be fighting 
+    with how to use the tool, not just getting the tool to work to begin with.
+    \item[C3.] Exit Criteria  - This is the criteria we must meet to determine when the project has completed 
+    the main stage of testing of Dr. McCourt’s research interests. This means that no changes need to be made to 
+    this completed part, except to address system test defects introduced by later stages of the project. z
+\end{itemize} 
 \section{Approach}
 
 Our tests will be derived from the requirements and specifications of our project and will follow 
 the following methodological approach:
 
 \begin{itemize}
-    \item[]Acceptance Testing: Assess system (software \& hardware) interaction with respect 
+    \item[T1.] Acceptance Testing: Assess system (software \& hardware) interaction with respect 
     to user needs. For example, making sure the controller is responsive or camera is functioning 
     adequately.
-    \item[]System Testing: Assesses system interaction to architecture design and overall behavior. 
+    \item[T2.] System Testing: Assesses system interaction to architecture design and overall behavior. 
     For example a series of rostests that test the linking of each submodule we write for the overall 
     project.
-    \item[]Integration Testing: The continuous conjoining of different software artifacts to 
+    \item[T3.] Integration Testing: The continuous conjoining of different software artifacts to 
     serve the overall project development. For example, a test that ensures two individual modules are 
     linked properly.
-    \item[]Unit Testing: Assesses system interaction with respect to implementation of specific subsystems. 
+    \item[T4.] Unit Testing: Assesses system interaction with respect to implementation of specific subsystems. 
     For example, a test that ensures the controller is functioning properly standalone through the joy 
     package.
 \end{itemize}
@@ -327,21 +343,3 @@ this feature will depend on how well it is running by that day.
 \section{Approvals}
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
