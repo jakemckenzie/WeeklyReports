@@ -1,0 +1,215 @@
+\documentclass[english,12pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[hmargin=1in,vmargin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{flafter} 
+\useunder{\uline}{\ul}{}
+\begin{document}
+
+\begin{center}
+
+\thispagestyle{empty}
+
+$ $
+
+\vspace{250pt}
+
+\begin{bfseries}
+
+{\Large Object Recognition and Path Smoothing Robot, Phase 5}
+
+{\Huge Design Specification}
+
+%{\Large $\langle$application and version to be tested$\rangle$}%
+
+\end{bfseries}
+
+\vspace{180pt}
+
+University of Washington Tacoma, School of Engineering and Technology
+
+%TIE-21204 Ohjelmistojen testaus%
+
+\vspace{12pt}
+
+Authors: 
+
+Ammon Dodson \href{mailto:ammon0@uw.edu}{ammon0@uw.edu} 
+
+Alex Marlow \href{mailto:alexmarlow117@gmail.com}{alexmarlow117@gmail.com} 
+
+Jake McKenzie \href{mailto:jake314@uw.edu}{jake314@uw.edu}
+
+Distribution: Matthew Tolentino
+
+Document state: draft
+
+Modified: \today
+
+\end{center}
+
+\newpage
+
+
+\tableofcontents
+
+\newpage
+
+
+\section{Revision History}
+
+\begin{itemize}
+	\item v0.1.0: Initial specifications for the document itself.
+    \item v0.2.0: Additional information was added about the Robot 
+    Operating System (ROS).
+    \item v0.2.1: Ethical concerns were added to the document.
+    \item v0.2.2: Created a diagram for the overall system architecture.
+    \item v0.3.0: Additions to the introduction. Rewrite of the requirements section with
+    enumeration. Additions to the System Architecture and System Design
+    section including hardware architecture and software architecture with
+    higher level and lower level diagrams with text describing these diagrams
+    and text for these sections generally.
+    \item v0.4.0: Made the requirements table. Clarified some requirements. Improved page
+    formatting. Added some to the design section. Use case diagram created for
+    the introduction and general mistakes addressed.
+\end{itemize}
+
+
+\section{Introduction}
+\subsection{Overview}
+This design specification describes the architectures and design framework that will aid and abet the
+production of the ORPS-Robot version 0.4 – The Object Recognition and Path Smoothing Robot. The
+ORPS-Robot will be a platform for validating the research of Michael McCourt and a scheme for
+exploring object recognition via OpenCV with Robot Operating System, which is a powerful framework
+for writing robot software. There will be a demonstration of Simultaneous Localization and Mapping
+(SLAM). Together this will demonstrate a “finder robot” with applications in search and rescue and
+threat detection.\\\\
+Additionally, there will be beacon triangulation and/or GPS to fuse additional location information into
+the SLAM or finder functionality. Typically, feedback is used when some amount of uncertainty exists
+within a system and the environment for which that system operates. To implement feedback this
+requires analyzing the underlying dynamics of whatever system you plan to look at and the
+implementation of communications, computing and software to accomplish some task. The project aims
+at investigating the dynamics of a semi-autonomous robot with the Object Recognition and Path
+Smoothing Robot by delivering a platform that is some interplay of communications, computing and
+software to Michael McCourt to aid in his research in control.\\\\
+The networked control system to be explored in this project is commonly used in telerobotics.
+Telerobotics is still in the experimental phase of research and has been theorized for active shooter
+detection, a way for doctors to diagnose patients in disaster areas and telecommute from home.
+\subsection{Network Control}
+Network control systems have many useful applications; The typical use case involves using robots to
+interact with an environment that is too hazardous for a person. Any such Network control involves
+some delay of both outgoing control signals and incoming sensor data. In some situations, this delay
+may impair the intended function of the network control system.\\\\
+Dr. McCourt has developed a set of filters intended to be placed in such a delayed, closed-loop control
+system. These filters apply a mathematical transformation on both incoming and outgoing loop signals
+such that communication delays are mitigated. This specification outlines the development of a
+controller-robot system intended to demonstrate the McCourt filter.
+\subsection{Autonomous Control}
+There may also be use cases for robots in hazardous environments where direct human control is
+impossible. Such a robot must be able to autonomously navigate and interact with an unknown space.
+SLAM is a fundamental technology for such autonomous activity, allowing the robot to navigate.
+Additionally, such an autonomous machine must be able to sense and recognize an objective before
+being able to interact with it. Computer vision is another
+fundamental technology for sensing a real-world environment.
+Sensing a condition is a necessary first step for being able to act
+based on the current environment.
+\subsection{Scope}
+This specification covers the following:\\
+\begin{itemize}
+    \item Any and all hardware modifications to the ORPS-Robot.
+    \item Software installed on the burger bot insofar as it deviates
+    from the stock installation.
+    \item Base station control software setup insofar as it deviates
+    from stock installation.
+    \item Any necessary techniques for integrating a Human
+    Interface to the base station installation.
+    \item Any methods used to implement a communication delay
+    between the robot and its base station.
+    \item Implementation of the McCourt input output transformation.
+    \item An overview of implementing SLAM on the ORPS-Robot.
+    \item Integration of OpenCV into the ORPS-Robot.
+\end{itemize}
+\section{Requirements}
+In this section we will delve through the minimum requirements of this project to translate the needs of
+our client Michael McCourt into precise targets, establish metrics for a successful product and support
+design trade-off decisions. For this revision of the design specification we will articulate the marginally
+acceptable target values, without any of the ideal target values for our stretch goals.
+**INSERT TABLE HERE**
+\subsection{Network Control}
+\begin{itemize}
+    \item[R1.] \textbf{There will be some ROS capable mobile platform.} \\
+    This robot must be ROS capable, mobile, and remotely controllable. The mobile platform must be
+    capable of processing the R-transform for incoming and outgoing signals. All the hardware and software
+    modules of the mobile platform must fit within the constraints of that platform, including such things as
+    power, weight, and processing speed.
+    \item[R2.] \textbf{There must be a base station interfaced with a USB game controller.} \\
+    The Human controller we have available currently is a USB game controller. This controller will have to
+    be connected to some base station that can connect to the ORPS-Robot wirelessly. The base station is a
+    laptop which will run the graphical user interface for the user, route communication traffic, perform
+    transformations and public commands for the ORPS-Robot.
+    \item[R3.] \textbf{The base station must communicate with the robot through a delayed link.} \\
+    In order to demonstrate the McCourt input-output transformation the robot must be remotely
+    controllable. Control signals must be routed through a delayed communication medium. Ideally, or as a
+    second stage, the human controller’s feedback information should also be routed through the delayed
+    medium.
+    \item[R4.] \textbf{The Robot Should be wirelessly controllable.} \\
+    To fully demonstrate the usefulness of the McCourt transform we should model a real-world situation
+    where the robot is out of sight and controllable solely from the base station.
+    \item[R5.] \textbf{The robot must be able to report its position in space.} \\
+    To fully demonstrate the McCourt input-output transformation the full control loop should be routed
+    through it as shown in Figure 2. This will require the position feedback to be in the form of a simple
+    numerical array such as an x-y coordinate.
+    \item[R6.] \textbf{There must be a means of recording and comparing the planned and actual path the robot follows.} \\
+    To demonstrate the McCourt input-output transformation we need to be able to compare the actual
+    and planned path and have some measure of how closely they align. We should be able to make
+    multiple test runs with and without the filter functioning and compare the course fidelity in aggregate.
+\end{itemize}
+\subsection{Autonomous Control}
+\section{System Architecture}
+\subsection{Hardware Architecture}
+\subsection{Software Architecture}
+\section{System Design}
+\subsection{Hardware Design}
+\subsubsection{Objectives}
+\subsubsection{Constraints}
+\subsubsection{Composition}
+\paragraph{Xbox 360 Controller}
+\paragraph{Marvelmind Indoor Navigation System}
+\paragraph{Raspberry Pi Model B}
+\paragraph{OpenCR}
+\paragraph{DYNAMIXEL Actuator System}
+\paragraph{Li-Po Battery}
+\paragraph{LDS-01 LiDAR}
+\subsubsection{Interface}
+\paragraph{Xbox 360 Controller}
+\paragraph{Marvelmind Indoor Navigation System}
+\paragraph{Raspberry Pi 3 Model B}
+\paragraph{OpenCR}
+\paragraph{DYNAMIXAL Actuator System}
+\paragraph{Li-Po Battery}
+\subsection{Software Design}
+\subsubsection{Objectives}
+\subsubsection{Constraints}
+\subsubsection{Compositions}
+\subsubsection{Uses and Interactions}
+\subsubsection{Interface}
+\subsubsection{Resources}
+\subsubsection{Base Station Software}
+\paragraph{Robot Operating System (ROS)}
+\paragraph{Graphical User Interface (GUI)}
+\subsubsection{R-Transformation}
+\subsubsection{M-Transformation}
+\subsubsection{Human Interface Design}
+\section{Ethical Considerations}
+\section{References}
+\section{Errata}
+\end{document}
