@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.15)  28 JAN 2019 11:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.15)  17 FEB 2019 20:26
 entering extended mode
-**./DesignSpec_rev0.5.tex
-(DesignSpec_rev0.5.tex
+**./DesignSpec_rev0.6.tex
+(DesignSpec_rev0.6.tex
 LaTeX2e <2018-04-01> patch level 5
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -545,8 +545,8 @@ Already applied: [0000/00/00] float order in 2-column on input line 151.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\placeins\placeins.sty"
 Package: placeins 2005/04/18  v 2.2
 )
-No file DesignSpec_rev0.5.aux.
-\openout1 = `DesignSpec_rev0.5.aux'.
+(DesignSpec_rev0.6.aux)
+\openout1 = `DesignSpec_rev0.6.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
@@ -564,6 +564,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 \AtBeginShipoutBox=\box61
 Package hyperref Info: Link coloring OFF on input line 22.
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -575,8 +576,10 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 22.
 LaTeX Info: Redefining \pageref on input line 22.
 LaTeX Info: Redefining \nameref on input line 22.
+
+(DesignSpec_rev0.6.out) (DesignSpec_rev0.6.out)
 \@outlinefile=\write3
-\openout3 = `DesignSpec_rev0.5.out'.
+\openout3 = `DesignSpec_rev0.6.out'.
 
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
@@ -766,196 +769,197 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {C:/Users/iapetus/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(DesignSpec_rev0.6.toc)
 \tf@toc=\write4
-\openout4 = `DesignSpec_rev0.5.toc'.
+\openout4 = `DesignSpec_rev0.6.toc'.
 
-
-[2]
+ [2]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 77.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
  [3]
-<proj_obj.jpg, id=25, 214.401pt x 130.8087pt>
+<proj_obj.jpg, id=195, 214.401pt x 130.8087pt>
 File: proj_obj.jpg Graphic file (type jpg)
 <use proj_obj.jpg>
-Package pdftex.def Info: proj_obj.jpg  used on input line 105.
+Package pdftex.def Info: proj_obj.jpg  used on input line 106.
 (pdftex.def)             Requested size: 469.75502pt x 286.63629pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--126
+Underfull \hbox (badness 10000) in paragraph at lines 110--127
 
  []
 
-<typ_cs.jpg, id=26, 90.5784pt x 86.2422pt>
+<typ_cs.jpg, id=196, 90.5784pt x 86.2422pt>
 File: typ_cs.jpg Graphic file (type jpg)
 <use typ_cs.jpg>
-Package pdftex.def Info: typ_cs.jpg  used on input line 130.
+Package pdftex.def Info: typ_cs.jpg  used on input line 131.
 (pdftex.def)             Requested size: 178.5092pt x 169.96259pt.
 [4 <./proj_obj.jpg>]
-Underfull \hbox (badness 2158) in paragraph at lines 134--143
+Underfull \hbox (badness 2158) in paragraph at lines 135--144
 []\T1/cmr/m/n/12 Network con-trol sys-tems have many use-ful ap-
  []
 
 
-Underfull \hbox (badness 2435) in paragraph at lines 134--143
+Underfull \hbox (badness 2435) in paragraph at lines 135--144
 \T1/cmr/m/n/12 pli-ca-tions; The typ-i-cal use case in-volves us-ing
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 134--143
+Underfull \hbox (badness 1502) in paragraph at lines 135--144
 \T1/cmr/m/n/12 robots to in-ter-act with an en-vi-ron-ment that is
  []
 
 
-Underfull \hbox (badness 2529) in paragraph at lines 134--143
+Underfull \hbox (badness 2529) in paragraph at lines 135--144
 \T1/cmr/m/n/12 too haz-ardous for a per-son. Any such Net-
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 134--143
+Underfull \hbox (badness 2035) in paragraph at lines 135--144
 \T1/cmr/m/n/12 work con-trol in-volves some de-lay of both out-
  []
 
 
-Underfull \hbox (badness 1424) in paragraph at lines 134--143
+Underfull \hbox (badness 1424) in paragraph at lines 135--144
 \T1/cmr/m/n/12 go-ing con-trol sig-nals and in-com-ing sen-sor data.
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 134--143
+Underfull \hbox (badness 1960) in paragraph at lines 135--144
 \T1/cmr/m/n/12 In some sit-u-a-tions, this de-lay may im-pair the
  []
 
 
-Underfull \hbox (badness 4144) in paragraph at lines 134--143
+Underfull \hbox (badness 4144) in paragraph at lines 135--144
 \T1/cmr/m/n/12 in-tended func-tion of the net-work con-trol sys-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--143
+Underfull \hbox (badness 10000) in paragraph at lines 135--144
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
 
  []
 
 [5 <./typ_cs.jpg>] [6] [7]
-<sys_arc.jpg, id=56, 133.4586pt x 193.9245pt>
+<sys_arc.jpg, id=218, 133.4586pt x 193.9245pt>
 File: sys_arc.jpg Graphic file (type jpg)
 <use sys_arc.jpg>
-Package pdftex.def Info: sys_arc.jpg  used on input line 244.
+Package pdftex.def Info: sys_arc.jpg  used on input line 245.
 (pdftex.def)             Requested size: 201.99121pt x 293.5166pt.
 
-Underfull \hbox (badness 1024) in paragraph at lines 250--283
+Underfull \hbox (badness 1024) in paragraph at lines 251--284
 \T1/cmr/m/n/12 plor-ing ob-ject recog-ni-tion via OpenCV with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--283
+Underfull \hbox (badness 10000) in paragraph at lines 251--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--283
+Underfull \hbox (badness 10000) in paragraph at lines 251--284
 
  []
 
 [8 <./sys_arc.jpg>]
-<hard_arc.jpg, id=63, 234.6366pt x 87.4467pt>
+<hard_arc.jpg, id=224, 234.6366pt x 87.4467pt>
 File: hard_arc.jpg Graphic file (type jpg)
 <use hard_arc.jpg>
-Package pdftex.def Info: hard_arc.jpg  used on input line 307.
+Package pdftex.def Info: hard_arc.jpg  used on input line 308.
 (pdftex.def)             Requested size: 445.80699pt x 166.14775pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--310
+Underfull \hbox (badness 10000) in paragraph at lines 285--311
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--310
+Underfull \hbox (badness 10000) in paragraph at lines 285--311
 
  []
 
 [9 <./hard_arc.jpg>]
-<software_arc.jpg, id=70, 110.5731pt x 123.5817pt>
+<software_arc.jpg, id=230, 110.5731pt x 123.5817pt>
 File: software_arc.jpg Graphic file (type jpg)
 <use software_arc.jpg>
-Package pdftex.def Info: software_arc.jpg  used on input line 352.
+Package pdftex.def Info: software_arc.jpg  used on input line 353.
 (pdftex.def)             Requested size: 248.96957pt x 278.28438pt.
  [10]
-Underfull \hbox (badness 1102) in paragraph at lines 358--389
+<cake.jpeg, id=242, 178.0251pt x 84.7968pt>
+File: cake.jpeg Graphic file (type jpg)
+<use cake.jpeg>
+Package pdftex.def Info: cake.jpeg  used on input line 391.
+(pdftex.def)             Requested size: 445.0616pt x 211.99142pt.
+
+Underfull \hbox (badness 1102) in paragraph at lines 359--394
 \T1/cmr/m/n/12 that of the bases-ta-tion and ORPS-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--389
+Underfull \hbox (badness 10000) in paragraph at lines 359--394
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--389
+Underfull \hbox (badness 10000) in paragraph at lines 359--394
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 390--405
+[11 <./software_arc.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 395--410
 
  []
 
-[11 <./software_arc.jpg>] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 434--440
+[12 <./cake.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 439--445
 
  []
 
 [13] [14]
-<ovr_tran.jpg, id=127, 101.178pt x 119.7273pt>
+<ovr_tran.jpg, id=276, 101.178pt x 119.7273pt>
 File: ovr_tran.jpg Graphic file (type jpg)
 <use ovr_tran.jpg>
-Package pdftex.def Info: ovr_tran.jpg  used on input line 510.
+Package pdftex.def Info: ovr_tran.jpg  used on input line 515.
 (pdftex.def)             Requested size: 225.4804pt x 266.83356pt.
  [15 <./ovr_tran.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 540--555
+Underfull \hbox (badness 10000) in paragraph at lines 545--560
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 540--555
+Underfull \hbox (badness 10000) in paragraph at lines 545--560
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 557.
 [16]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 557.
- (DesignSpec_rev0.5.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 557.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 557.
-
-
-Package rerunfilecheck Warning: File `DesignSpec_rev0.5.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `DesignSpec_rev0.5.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  BB3DDAA5FB0F25982E552D65B3EC0E4E;2251.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 557.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 562.
+ [17]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 562.
+ (DesignSpec_rev0.6.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 562.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 562.
+Package rerunfilecheck Info: File `DesignSpec_rev0.6.out' has not changed.
+(rerunfilecheck)             Checksum: BB3DDAA5FB0F25982E552D65B3EC0E4E;2251.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 562.
  ) 
 Here is how much of TeX's memory you used:
- 18962 strings out of 492973
- 352421 string characters out of 3135932
- 423260 words of memory out of 3000000
- 22596 multiletter control sequences out of 15000+200000
+ 19013 strings out of 492973
+ 353475 string characters out of 3135932
+ 423479 words of memory out of 3000000
+ 22635 multiletter control sequences out of 15000+200000
  543377 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,15n,63p,234b,799s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\iapetus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
-0\ecbx1200.pk> <C:\Users\iapetus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
-pen\ec\dpi600\ecbi1200.pk> <C:\Users\iapetus\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\iapetus\AppData\Local\MiKTeX\2
+0\ecbi1200.pk> <C:\Users\iapetus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
+pen\ec\dpi600\ecbx1440.pk> <C:\Users\iapetus\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\iapetus\AppData\Local\MiKTeX\2
 .9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\iapetus\AppData\Lo
 cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\iapetu
 s\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk><C:/P
@@ -963,9 +967,9 @@ rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on DesignSpec_rev0.5.pdf (16 pages, 870012 bytes).
+Output written on DesignSpec_rev0.6.pdf (17 pages, 976444 bytes).
 PDF statistics:
- 453 PDF objects out of 1000 (max. 8388607)
- 78 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 598 PDF objects out of 1000 (max. 8388607)
+ 80 named destinations out of 1000 (max. 500000)
+ 308 words of extra memory for PDF output out of 10000 (max. 10000000)
 

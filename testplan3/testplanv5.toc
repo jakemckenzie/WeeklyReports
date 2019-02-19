@@ -20,10 +20,13 @@
 \contentsline {subsubsection}{\numberline {4.3.1}Metrics Methodology}{13}{subsubsection.4.3.1}
 \contentsline {subsubsection}{\numberline {4.3.2}Measuring Safety}{14}{subsubsection.4.3.2}
 \contentsline {subsubsection}{\numberline {4.3.3}Criticality}{14}{subsubsection.4.3.3}
-\contentsline {subsubsection}{\numberline {4.3.4}Defect Detection Percentage}{15}{subsubsection.4.3.4}
-\contentsline {section}{\numberline {5}Fail Criteria}{15}{section.5}
-\contentsline {section}{\numberline {6}Testing Deliverables}{15}{section.6}
-\contentsline {section}{\numberline {7}Roles}{15}{section.7}
+\contentsline {subsubsection}{\numberline {4.3.4}Regression Testing}{15}{subsubsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.5}Defect Detection Percentage}{16}{subsubsection.4.3.5}
+\contentsline {section}{\numberline {5}Fail Criteria}{16}{section.5}
+\contentsline {section}{\numberline {6}Testing Deliverables}{16}{section.6}
+\contentsline {section}{\numberline {7}Roles}{16}{section.7}
 \contentsline {section}{\numberline {8}Schedule}{16}{section.8}
+\contentsline {subsection}{\numberline {8.1}Delay Handling}{16}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Dates}{17}{subsection.8.2}
 \contentsline {section}{\numberline {9}Testing Risks and Mitigation}{17}{section.9}
 \contentsline {section}{\numberline {10}Approvals}{17}{section.10}
